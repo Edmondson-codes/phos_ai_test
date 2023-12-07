@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Chat App</title>
+    <link href="./dist/styles.css" rel="stylesheet">
+    <style>
+        /* Sidebar initial state (hidden) */
+        #sidebar {
+            transform: translateX(-100%);
+        }
+        /* Transition for smooth sliding effect */
+        #sidebar.transition {
+            transition: transform 0.3s ease;
+        }
+
+        .no-border {border:0;outline:0;}
+        .no-hov-border:focus {outline:none!important;}
+
+        .min-w-lg {
+            min-width: 28rem;
+        }
+
+        .yellow-to-orange-gradient {
+            background: linear-gradient(to right, #FED7AA, #FACC15);
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .green-to-blue-gradient {
+            background: linear-gradient(to right, #4ade63, #3B82F6);
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="bg-black text-white">
+
+    <!-- Header -->
+    <header class="flex justify-between items-center p-4 ">
+        <h1 class="text-xl ">Phosphorescent Ai</h1>
+        <nav>
+            <a href="/login" class="mr-4">Login</a>
+            <a href="/signup" class="text-teal-500 hover:bg-fuchsia-700 text-white font-bold py-2 px-4 rounded">Sign Up</a>
+        </nav>
+    </header>
+
+    <!-- Section 1 -->
+    <section class="min-h-screen flex flex-col md:flex-row" style="@media (min-width: 640px) { flex-direction: column; }">
+        <div class="flex-1 flex items-center justify-center">
+            <h2 class="text-4xl font-bold green-to-blue-gradient ">Phosphorescent Ai</h2>
+        </div>
+        <div class="flex-1 flex items-center justify-center">
+            <ul id="feature-list" class="list-disc pl-5 text-2xl">
+                <!-- Typing effect list will go here -->
+            </ul>
+        </div>
+    </section>
+
+   <!-- Section 2 - Experts -->
+    <!-- <section class="min-h-screen p-10" style="height: 200vh;">
+        <div class="grid md:grid-cols-3 sm:grid-cols-1 gap-4 grid-rows-6"> -->
+            <!-- Card 1 -->
+            <!-- <div class="col-1 row-1 bg-black p-5 rounded-lg">
+                <h3 class="text-xl text-teal-500 font-bold mb-2">Specialist Artificial Intelligences</h3>
+                <p class="text-white">Lorem ipsum dolor sit amet...</p>
+            </div> -->
+            <!-- Card with Image -->
+            <!-- <div class="col-2 row-1 flex flex-col">
+                <img src="https://source.unsplash.com/random/800x600" alt="Placeholder Image" class="rounded-lg max-w-1/2 h-auto object-cover">
+            </div> -->
+            <!-- Other cards... -->
+            <!-- <div class="col-3 row-2 flex-1 flex items-center justify-center p-10">
+                <div>
+                    <h2 class="text-3xl font-bold mb-4 green-to-blue-gradient block">Cheap</h2>
+                    <p>Lorem ipsum dolor sit amet...</p>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- Section 3 - Cheap -->
+    <!-- <section class="min-h-screen flex">
+        <div class="flex-1 flex items-center justify-center p-10">
+            <div>
+                <h2 class="text-3xl font-bold mb-4 green-to-blue-gradient block">Cheap</h2>
+                <p>Lorem ipsum dolor sit amet...</p>
+            </div>
+        </div>
+        <div class="flex-1">
+            <img src="https://source.unsplash.com/random/801x601" alt="Placeholder Image">
+        </div>
+    </section> -->
+
+    <!-- Footer -->
+    <footer class="p-4 text-center">
+        Made with ✨ in Australia
+    </footer>
+
+    <script>
+        // JavaScript for typing effect
+        const features = [ "- $0.04 per 1000 words", "- Pay as you go", "- Specialied Ais", "- Supports Teams",];
+        let currentFeature = 0;
+        let currentChar = 0;
+        const featureList = document.getElementById('feature-list');
+
+        function typeFeature() {
+            if (currentFeature < features.length) {
+                let feature = features[currentFeature];
+                if (currentChar < feature.length) {
+                    featureList.innerHTML += feature[currentChar];
+                    currentChar++;
+                    setTimeout(typeFeature, 10); // Adjust typing speed
+                } else {
+                    // featureList.innerHTML += '<li>' + feature + '</li>';
+                    featureList.innerHTML += '<br/>'
+                    currentFeature++;
+                    currentChar = 0;
+                    setTimeout(typeFeature, 200); // Adjust delay before next feature
+                }
+            }
+        }
+
+        typeFeature();
+
+    </script>
+</body>
+</html>
