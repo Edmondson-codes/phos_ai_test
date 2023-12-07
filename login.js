@@ -1,9 +1,9 @@
 const express = require('express');
 const ejs = require("ejs");
 const path = require('path');
-const bodyParser = require("body-parser");
 
-const https = require('https');
+// Set up express app and SQLite database
+const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
